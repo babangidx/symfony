@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task index{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="container">
+            <h1>Task Management</h1>
+            <a class="btn" href="{{ path('app_task_new') }}">Create new</a>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Task index</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>
+                        <a class="btn" href="{{ path('app_task_show', {'id': task.id}) }}">Show</a>
+                        <a class="btn" href="{{ path('app_task_edit', {'id': task.id}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
