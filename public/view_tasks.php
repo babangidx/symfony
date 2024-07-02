@@ -26,14 +26,14 @@ if (curl_errno($ch)) {
     if (json_last_error() === JSON_ERROR_NONE) {
         // Print the tasks
         foreach ($tasks as $task) {
-            echo "ID: " . $task['id'] . "\n";
-            echo "Title: " . $task['title'] . "\n";
-            echo "Description: " . $task['description'] . "\n";
-            echo "Status: " . $task['status'] . "\n";
-            echo "----------------------\n";
+            echo "ID: " . $task['id'] . "<br>";
+            echo "Title: " . $task['title'] . "<br>";
+            echo "Description: " . $task['description'] . "<br>";
+            echo "Status: " . $task['status'] . "<br>";
+            echo "----------------------<br>";
         }
     } else {
-        echo "Failed to decode JSON response.\n";
+        echo "Failed to decode JSON response.<br>";
     }
 }
 
